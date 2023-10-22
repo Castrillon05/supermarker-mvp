@@ -10,12 +10,77 @@ using System.Windows.Forms;
 
 namespace Supermarket_mvp.Views
 {
-    public partial class PayModeView : Form
+    public partial class PayModeView : Form IPayModeView
     {
+        private object TxtPayModeId;
+        private object TxtPayModeName;
+        private object TxtPayModeObservation;
+        private TabPage tabPagePayModeDetail;
+
+        public string PayModeId
+        {
+            get { return TxtPayModeId.Text; }
+            set { TxtPayModeId.Text = value; }
+        }
+        public string PayModeName
+        {
+            get { return TxtPayModeName.Text; }
+            set { TxtPayModeName.Text = value; }
+        }
+        public string PayModeobservation
+        {
+            get { return TxtPayModeObservation.Text; }
+            set { TxtPayModeObservation.Text = value; }
+        }
+        public string searchValue
+        {
+            get { return TxtSearch.Text; }
+            set { TxtSearch.Text = value; }
+        }
+        public bool IsEdit
+        {
+            get { return IsEdit; }
+            set { IsEdit = value; }
+        }
+        public bool IsSuccesful
+        {
+            get { return IsSuccesful; }
+            set { IsSuccesful = value; }
+        }
+        public string Message
+        {
+            get { return Message; }
+            set { Message = value; }
+        }
+
         public PayModeView()
         {
             InitializeComponent();
+            AsocciateAndRaiseView();
+
+            tabControl1.TabPages.Remove(tabPagePayModeDetail);
         }
+
+        private void AsocciateAndRaiseView()
+        {
+            BtnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+
+            TxtSearch.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
+
+        }
+
+        public event EventHandler SearchEvent;
+        public event EventHandler AddNewEvent;
+        public event EventHandler EditEvent;
+        public event EventHandler DeleteEvent;
+        public event EventHandler SaveEvent;
+        public event EventHandler CancelEvent;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,6 +95,16 @@ namespace Supermarket_mvp.Views
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void setpayModeListBildingsource(BindingSource payModeList)
+        {
+            DgPayMode.DataSource = payModeList;
+        }
+
+        public void show()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Supermarket_mvp.Views
     {
         String PayModeId { get; set; }
         String PayModeName { get; set; }
-        String PayModeobservation { get; set; }
+        String PayModeObservation { get; set; }
 
         String searchValue { get; set; }
         bool IsEdit { get; set; }
