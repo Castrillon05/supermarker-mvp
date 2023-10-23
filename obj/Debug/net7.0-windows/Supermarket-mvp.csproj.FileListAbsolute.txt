@@ -16,3 +16,4 @@ C:\Users\Castrillon\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Superm
 C:\Users\Castrillon\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.genruntimeconfig.cache
 C:\Users\Castrillon\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\ref\Supermarket-mvp.dll
 C:\Users\Castrillon\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket-mvp.csproj.AssemblyReference.cache
+C:\Users\Castrillon\source\repos\Supermarket-mvp\obj\Debug\net7.0-windows\Supermarket_mvp.Views.MainView.resources

@@ -101,10 +101,24 @@ namespace Supermarket_mvp.Views
         {
             DgPayMode.DataSource = payModeList;
         }
+        // Ptron singleton para controlar solo una instancia del formulario
+        private static PayModeView instance;
 
-        public void show()
+        public static PayModeView GetInstance()
         {
-            throw new NotImplementedException();
+          if(instance == null || instance.IsDisposed)
+            {
+                instance = new PayModeView();
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+          return instance;
         }
     }
 }
