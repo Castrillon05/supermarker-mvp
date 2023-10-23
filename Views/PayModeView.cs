@@ -104,11 +104,12 @@ namespace Supermarket_mvp.Views
         // Ptron singleton para controlar solo una instancia del formulario
         private static PayModeView instance;
 
-        public static PayModeView GetInstance()
+        public static PayModeView GetInstance(Form parentContainer)
         {
-          if(instance == null || instance.IsDisposed)
+            if (instance == null || instance.IsDisposed)
             {
                 instance = new PayModeView();
+                instance.MdiParent = parentContainer;
             }
             else
             {
@@ -118,7 +119,7 @@ namespace Supermarket_mvp.Views
                 }
                 instance.BringToFront();
             }
-          return instance;
+            return instance;
         }
     }
 }
